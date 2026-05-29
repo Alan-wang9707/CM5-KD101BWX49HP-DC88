@@ -1,0 +1,73 @@
+/*
+ * vc4-kms-dsi-ili9881-10inch-overlay.dts
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	compatible = "brcm,bcm2712";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			reg_3v3: fixedregulator {
+				compatible = "regulator-fixed";
+				regulator-name = "3v3";
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				regulator-always-on;
+				status = "okay";
+			};
+		};
+	};
+
+	dsi_frag: fragment@1 {
+		target = <&dsi1>;
+		__overlay__  {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
+
+			port {
+				dsi_out: endpoint {
+					remote-endpoint = <&panel_in>;
+				};
+			};
+
+			dsi_panel: dsi_panel@0 {
+				reg = <0>;
+				compatible = "kdxs,k101-dc88";
+				reset-gpios = <&rp1_gpio 4 GPIO_ACTIVE_LOW>;
+				power-supply = <&reg_3v3>;  
+				
+				port {
+					panel_in: endpoint {
+						remote-endpoint = <&dsi_out>;
+					};
+				};
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&i2c0if>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
+		target = <&i2c0mux>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	__overrides__ {
+		dsi0 = <&dsi_frag>, "target:0=",<&dsi0>;
+		rotation = <&dsi_panel>, "rotation:0";
+	};
+};
