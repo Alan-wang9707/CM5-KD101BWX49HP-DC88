@@ -10,4 +10,5 @@ inch	Resolution	Brightness	Operating temp
 
 # Note:
 Kadi Display is a solutions-oriented display provider. We offer in-house production and design of LCD and touch panels, along with Raspberry Pi-ready display drivers, enabling developers and customers to quickly deploy and implement their applications.
-# Contact：Sales@sz-kadi.com Whatsapp：+86-13662585086
+# Contact：Sales@sz-kadi.com 
+Whatsapp：+86-13662585086
