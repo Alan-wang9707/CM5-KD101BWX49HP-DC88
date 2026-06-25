@@ -13,7 +13,7 @@ We provide industrial tft lcd and touch panel, and made a convert board to conne
 · Pull the latest Raspberry Pi source code in a virtual machine. \
 <img width="627" height="79" alt="image" src="https://github.com/user-attachments/assets/8dab5eae-6d12-4cfa-a586-497193d5bb1f" /> \
 · And git clone our driver and device tree and place them in the corresponding directory \
-<img width="759" height="41" alt="image" src="https://github.com/user-attachments/assets/2243bb92-53a9-4870-90f4-0c1d4c329b0a" />
+<img width="830" height="63" alt="image" src="https://github.com/user-attachments/assets/2e8c675f-1dac-467d-b9c0-e045e62a48eb" />
 # Step 3：
 · Compile the kernel and device tree according to the official procedure to generate the corresponding .KO and .dtbo files.\
 详情请见：https://www.raspberrypi.com/documentation/computers/linux_kernel.html#kernel
