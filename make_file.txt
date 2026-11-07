@@ -1,0 +1,28 @@
+
+
+2.SCP .c文件到树莓派
+scp panel-dc88_ili9881c.c tqy@192.168.1.103:~/my_driver
+
+3.复制编译完成的.KO文件到树莓派/lib/modules/$(uname -r)/extra/文件中去
+sudo cp panel-dc88_ili9881c.ko /lib/modules/$(uname -r)/extra/
+
+
+cd my_driver
+make clean
+rm -f panel-dc88_ili9881c.c
+
+1. 自己的驱动C文件存放位置
+cd /lib/modules/$(uname -r)/extra/ && sudo rm -f panel-dc88_ili9881c.ko
+
+
+
+cd ~/my_driver
+make
+sudo cp panel-dc88_ili9881c.ko /lib/modules/$(uname -r)/extra/
+
+
+sudo depmod -a
+
+打印信息
+dmesg | grep ili9881c
+
